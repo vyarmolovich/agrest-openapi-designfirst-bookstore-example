@@ -1,0 +1,75 @@
+openapi: 3.0.0
+servers:
+  - url: 'http://127.0.0.1/v1'
+info:
+  title: AgREST based API of Bookstore
+  description: An API for interacting with the Bookstore backend server
+  version: v1
+
+tags:
+  - name: Category
+    description: |
+      This model represents a Category type and is used to retrieve, create and update a book Category information.
+
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+       id:
+         type: string
+         description: Unique ID of Category
+         example: 1
+       name:
+         type: string
+         description: Book Category name
+         example: Science Fiction
+       description:
+         type: string
+         description: Description of Category
+         example: Science fiction (often shortened to Sci-Fi or SF) is a genre of speculative fiction, typically dealing with imaginative concepts such as advanced science and technology, spaceflight, time travel, and extraterrestrial life.
+
+paths:
+  /category:
+    get:
+      summary: Get list of all Book Categories
+      operationId: getAll
+      tags:
+        - Category
+      parameters:
+        - $ref: '../resources/protocol.yaml#/components/queryParams/Limit'
+        - $ref: '../resources/protocol.yaml#/components/queryParams/Start'
+      responses:
+        '200':
+          description: Success response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+        default:
+          description: Unexpected error
+
+  /category/{id}:
+    get:
+      description: Returns a particular Book Category
+      operationId: getOne
+      tags:
+        - Category
+      parameters:
+        - name: id
+          in: path
+          description: ID of Category to fetch
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success responce
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: Unexpected error
