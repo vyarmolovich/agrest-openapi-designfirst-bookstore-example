@@ -1,7 +1,7 @@
 # agrest-openapi-designfirst-bookstore-example
 
 A simple example of a [AgRest](http://agrest.io) / [Apache Cayenne](http://cayenne.apache.org/) application.
-That demonstrates of using OpenAPI 3.0 and Design-First approach to generate AgREST based application. 
+That demonstrates of using [OpenAPI 3.0](https://www.openapis.org/) and Design-First approach to generate AgREST based application. 
 
 Prerequisites:
 
