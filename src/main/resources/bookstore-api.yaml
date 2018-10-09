@@ -29,6 +29,15 @@ components:
          description: Description of Category
          example: Science fiction (often shortened to Sci-Fi or SF) is a genre of speculative fiction, typically dealing with imaginative concepts such as advanced science and technology, spaceflight, time travel, and extraterrestrial life.
 
+  requestBodies:
+    Category:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+      description: Category object that needs to be created or updated
+      required: true
+
 paths:
   /category:
     get:
@@ -50,6 +59,16 @@ paths:
                   $ref: '#/components/schemas/Category'
         default:
           description: Unexpected error
+    post:
+      tags:
+        - Category
+      summary: Create a new Book Category
+      operationId: create
+      requestBody:
+        $ref: "#/components/requestBodies/Category"
+      responses:
+        default:
+          description: successful operation
 
   /category/{id}:
     get:
