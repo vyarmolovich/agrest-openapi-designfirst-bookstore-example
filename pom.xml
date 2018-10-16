@@ -14,6 +14,11 @@
             <artifactId>agrest</artifactId>
             <version>3.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>io.agrest.openapi</groupId>
+            <artifactId>agrest-openapi-designfirst</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
@@ -70,9 +75,9 @@
 
                 <dependencies>
                     <dependency>
-                        <groupId>io.agrest.openapi</groupId>
-                        <artifactId>agrest-openapi-designfirst</artifactId>
-                        <version>3.0-SNAPSHOT</version>
+                        <groupId>org.example.agrest</groupId>
+                        <artifactId>bookstore</artifactId>
+                        <version>${project.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
